@@ -1,125 +1,368 @@
+/* ==========================================================================
+   MALLA DE ESTILOS PROFESIONALES PARA EL HOME DEL PORTAL FINANCIERO
+   ========================================================================== */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --bcp-azul: #003087;
+  --bcp-naranja: #FF6900;
+  --bcp-azul-light: #0041B8;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+/* ── NAVBAR COMUNIDAD ── */
+.navbar-home {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 32px;
 }
 
-body {
-  margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
+/* ── SECCIÓN HERO DINÁMICA ── */
+.hero {
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 60px 32px;
+  display: flex;
+  align-items: center;
+  justifyContent: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-inner {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-texto h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--bcp-azul);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.hero-texto p {
+  font-size: 1.15rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+.btn-hero {
+  background: var(--bcp-naranja);
+  color: #fff;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 105, 0, 0.3);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn-hero:hover {
+  background: #e55e00;
+  transform: translateY(-2px);
+}
+
+.hero img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 48, 135, 0.08);
+}
+
+/* ── SECCIÓN GRILLA DE SERVICIOS MYPE ── */
+.section-servicios {
+  background: #fff;
+  width: 100%;
+  padding: 60px 32px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.section-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-inner h2 {
+  font-size: 1.6rem;
+  color: var(--bcp-azul);
+  font-weight: 800;
+  margin-bottom: 32px;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.servicio-card {
+  background: #F8FAFC;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px 16px;
   text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.servicio-card:hover {
+  background: #fff;
+  border-color: var(--bcp-azul);
+  box-shadow: 0 6px 20px rgba(0, 48, 135, 0.06);
+  transform: translateY(-3px);
+}
+
+.servicio-card .icono {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.servicio-card p {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.badge-card {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+/* ── SECCIÓN SPLIT INTERIOR ── */
+.section-split {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 32px;
+}
+
+.split-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* PANEL MI ESPACIO DNI */
+.panel-espacio {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  position: relative;
+}
+
+.badge-panel {
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.panel-espacio h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--bcp-azul);
+  margin: 16px 0 8px;
+}
+
+.panel-espacio p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.dni-input {
+  display: flex;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.dni-input select {
+  border: none;
+  background: #f1f5f9;
+  padding: 0 14px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.dni-input input {
+  border: none;
+  flex: 1;
+  padding: 12px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.btn-conocer {
+  width: 100%;
+  background: var(--bcp-azul);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.btn-conocer:hover {
+  background: var(--bcp-azul-light);
+}
+
+/* ── FOOTER CORPORATIVO MIBANCO ── */
+.footer-bcp {
+  background: #1e293b;
+  color: #94a3b8;
+  padding: 40px 32px;
+  text-align: center;
+  border-top: 4px solid var(--bcp-naranja);
+}
+
+.footer-logo {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.footer-bcp p {
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   ESTILOS DE ALINEACIÓN CORPORATIVA PARA NAVBAR (HOME)
+   ========================================================================== */
+
+.navbar-bcp {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* Fila Superior: Logo, Segmentos y Acciones */
+.navbar-top {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+/* Selector Central: Personas, PyMES, Empresas */
+.tipo-cliente {
+  display: flex;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 20px;
+  gap: 4px;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.tipo-cliente button {
+  border: none;
+  background: transparent;
+  padding: 6px 16px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.tipo-cliente button.active {
+  background: #003087;
+  color: #fff;
 }
 
-/* Agregar en index.css o App.css */
-
-/* Fix texto invisible en inputs */
-input, textarea, select {
-  color: #111 !important;
-  -webkit-text-fill-color: #111 !important;
+/* Acciones de la derecha: Idioma, Registro y Botón de Acceso */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Fix autofill de Chrome que pone fondo amarillo */
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
-  -webkit-text-fill-color: #111 !important;
+.navbar-actions button {
+  border: none;
+  background: transparent;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.navbar-actions .btn-abrir {
+  border: 1.5px solid #003087;
+  color: #003087;
+  padding: 6px 16px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.navbar-actions .btn-abrir:hover {
+  background: rgba(0, 48, 135, 0.04);
+}
+
+.navbar-actions .btn-banca {
+  background: #FF6900;
+  color: #fff !important;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 105, 0, 0.2);
+  transition: background 0.2s;
+}
+
+.navbar-actions .btn-banca:hover {
+  background: #e55e00;
+}
+
+/* Menú Inferior de Navegación */
+.navbar-menu {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12px 32px 16px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #003087;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.navbar-menu a:hover {
+  color: #FF6900;
 }
