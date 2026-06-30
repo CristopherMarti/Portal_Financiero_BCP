@@ -16,7 +16,7 @@ export default function CronogramaCuotas() {
       try {
         const token = localStorage.getItem('token');
         // Consultamos al Core el detalle del préstamo para re-calcular o traer sus cuotas
-        const resDetalle = await fetch(`http://localhost:8000/api/recuperaciones/mora`, {
+        const resDetalle = await fetch(`https://portal-financiero-bcp-backend.onrender.com/api/recuperaciones/mora`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const data = await resDetalle.json();
@@ -24,7 +24,7 @@ export default function CronogramaCuotas() {
 
         if (prestamoActual) {
           // Invocamos al motor matemático de Python para estructurar las filas
-          const resCronograma = await fetch('http://localhost:8000/api/solitudes/calcular-cronograma', {
+          const resCronograma = await fetch('https://portal-financiero-bcp-backend.onrender.com/api/solitudes/calcular-cronograma', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
             body: JSON.stringify({

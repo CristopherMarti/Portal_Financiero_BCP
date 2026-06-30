@@ -33,13 +33,13 @@ export default function PagoCredito() {
         const headers = { 'Authorization': `Bearer ${token}` };
 
         // 1. Jalamos deudas del módulo de recuperaciones de mora
-        const resMora = await fetch('http://localhost:8000/api/recuperaciones/mora', { headers });
+        const resMora = await fetch('https://portal-financiero-bcp-backend.onrender.com/api/recuperaciones/mora', { headers });
         const dataMora = await resMora.json();
         const misDeudas = dataMora.filter(m => String(m.cliente_id) === String(userId) || m.cliente_id === 7);
         setCreditos(misDeudas);
 
         // 2. Jalamos cuentas de ahorro operativas con saldo libre
-        const resCuentas = await fetch('http://localhost:8000/api/ahorros/cuentas', { headers });
+        const resCuentas = await fetch('https://portal-financiero-bcp-backend.onrender.com/api/ahorros/cuentas', { headers });
         const dataCuentas = await resCuentas.json();
         setCuentas(dataCuentas || []);
 
@@ -77,7 +77,7 @@ export default function PagoCredito() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/api/pagos/procesar-credito', {
+      const response = await fetch('https://portal-financiero-bcp-backend.onrender.com/api/pagos/procesar-credito', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

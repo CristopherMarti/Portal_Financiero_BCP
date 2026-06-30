@@ -29,7 +29,7 @@ export default function Cuentas() {
 
         // Consultamos el resumen de ahorros en tu FastAPI (Puerto 8001)
         // Mapeado con el prefijo /api/cuentas en tu main.py
-        const response = await fetch(`http://localhost:8001/api/cuentas/resumen/${userId}`, {
+        const response = await fetch(`https://portal-financiero-bcp-backend.onrender.com/api/cuentas/resumen/${userId}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
 

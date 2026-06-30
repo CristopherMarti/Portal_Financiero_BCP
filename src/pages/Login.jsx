@@ -20,7 +20,7 @@ export default function Login() {
 
     try {
       // Apuntamos al puerto 8001 donde corre tu Uvicorn
-      const res = await fetch('http://localhost:8001/api/auth/login', {
+      const res = await fetch('https://portal-financiero-bcp-backend.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // Enviamos las llaves exactas que exige tu LoginSchema de Pydantic

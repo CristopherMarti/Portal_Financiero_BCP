@@ -22,7 +22,7 @@ export default function Prestamos() {
         }
 
         // Invocamos al endpoint de recuperaciones de tu FastAPI
-        const response = await fetch('http://localhost:8000/api/recuperaciones/mora', {
+        const response = await fetch('https://portal-financiero-bcp-backend.onrender.com/api/recuperaciones/mora', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         

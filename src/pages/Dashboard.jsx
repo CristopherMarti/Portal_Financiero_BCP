@@ -119,7 +119,7 @@ export default function Dashboard() {
     // CONSUMO INTEGRADO DEL ENDPOINT DE TU DASHBOARD SERVICE (Puerto 8001)
     const cargarResumenCore = async () => {
       try {
-        const response = await fetch(`http://localhost:8001/api/cuentas/resumen/${userId}`, {
+        const response = await fetch(`https://portal-financiero-bcp-backend.onrender.com/api/cuentas/resumen/${userId}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         

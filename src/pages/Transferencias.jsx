@@ -35,7 +35,7 @@ export default function Transferencias() {
         const token = localStorage.getItem('token');
         if (!token) { navigate('/login'); return; }
 
-        const response = await fetch('http://localhost:8000/api/ahorros/cuentas', {
+        const response = await fetch('https://portal-financiero-bcp-backend.onrender.com/api/ahorros/cuentas', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
 
@@ -77,7 +77,7 @@ export default function Transferencias() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/api/transacciones/transferir', {
+      const response = await fetch('https://portal-financiero-bcp-backend.onrender.com/api/transacciones/transferir', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

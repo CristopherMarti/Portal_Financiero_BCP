@@ -69,7 +69,7 @@ export default function SolicitarPrestamo() {
     }
   };
 
-  
+
   // --- 2. ENVIAR SOLICITUD REAL A TU BACKEND PYTHON (POSTGRESQL) ---
   const handleRegistrarSolicitud = async () => {
     setLoadingSolicitud(true);
@@ -80,7 +80,7 @@ export default function SolicitarPrestamo() {
       const userId = localStorage.getItem('user_id') || "7"; // Recupera el id del cliente logueado
 
       // Golpeamos tu endpoint real en el puerto 8001
-      const response = await fetch('http://localhost:8001/api/prestamos/solicitar', {
+      const response = await fetch('https://portal-financiero-bcp-backend.onrender.com/api/prestamos/solicitar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
